@@ -5,6 +5,7 @@ import SignOut from '../components/SignOut';
 
 const Home: NextPage = () => {
   const { data: session } = useSession();
+  console.log(session);
 
   return (
     <div className="h-screen flex justify-center items-center">
