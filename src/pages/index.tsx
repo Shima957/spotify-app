@@ -1,16 +1,14 @@
-import type { NextPage } from 'next';
 import { useSession } from 'next-auth/react';
 import LoginButton from '../components/LoginButton';
 import SignOut from '../components/SignOut';
 
-const Home: NextPage = () => {
-  const { data: session } = useSession();
-  console.log(session);
+const Home = () => {
+  const { status: authState } = useSession();
 
   return (
     <div className="h-screen flex justify-center items-center">
-      {!session && <LoginButton />}
-      {session && <SignOut />}
+      {authState === 'unauthenticated' && <LoginButton />}
+      {authState === 'authenticated' && <SignOut />}
     </div>
   );
 };
