@@ -32,9 +32,10 @@ export default NextAuth({
     SpotifyProvider({
       clientId: process.env.NEXT_PUBLIC_CLIENT_ID as string,
       clientSecret: process.env.NEXT_PUBLIC_CLIENT_SECRET as string,
-      authorization: authorizationUrl
+      authorization: authorizationUrl,
     }),
   ],
+  secret: process.env.SECRET,
   callbacks: {
     async jwt({ token, account, user }) {
 
